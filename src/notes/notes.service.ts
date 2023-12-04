@@ -17,4 +17,11 @@ export class NotesService {
   getAll() {
     return this.noteModel.find({});
   }
+
+  getOne(noteId: number) {
+    // Add exception for 'CastError' later
+    return this.noteModel.findOne({
+      _id: noteId,
+    });
+  }
 }

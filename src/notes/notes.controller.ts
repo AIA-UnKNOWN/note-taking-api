@@ -21,7 +21,7 @@ export class NotesController {
 
   @Get(':id')
   getOne(@Param('id') noteId: number) {
-    return `Note ${noteId}`;
+    return this.notesService.getOne(noteId);
   }
 
   @Post()
