@@ -1,5 +1,14 @@
-import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { NotesService } from './notes.service';
+import { NoteDto } from './note.interface';
 
 @Controller('notes')
 export class NotesController {
@@ -16,8 +25,8 @@ export class NotesController {
   }
 
   @Post()
-  create() {
-    return 'Create a note';
+  create(@Body() noteData: NoteDto) {
+    return this.notesService.create(noteData);
   }
 
   @Put(':id')
