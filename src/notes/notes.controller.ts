@@ -1,12 +1,13 @@
 import { Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { NotesService } from './notes.service';
 
 @Controller('notes')
 export class NotesController {
-  constructor() {}
+  constructor(private notesService: NotesService) {}
 
   @Get()
   getAll() {
-    return 'All notes';
+    return this.notesService.getAll();
   }
 
   @Get(':id')

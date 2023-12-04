@@ -14,7 +14,7 @@ export class NotesService {
     return 'Create note';
   }
 
-  findAll() {
-    return 'Get all notes';
+  getAll() {
+    return this.noteModel.find({});
   }
 }
